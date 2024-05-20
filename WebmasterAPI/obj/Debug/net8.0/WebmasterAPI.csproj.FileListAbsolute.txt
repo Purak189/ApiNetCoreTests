@@ -107,3 +107,4 @@ C:\Users\Jair\Desktop\OpenSource\Testing API\WebMasterApi\WebmasterAPI\Webmaster
 C:\Users\Jair\Desktop\OpenSource\Testing API\WebMasterApi\WebmasterAPI\WebmasterAPI\obj\Debug\net8.0\WebmasterAPI.genruntimeconfig.cache
 C:\Users\Jair\Desktop\OpenSource\Testing API\WebMasterApi\WebmasterAPI\WebmasterAPI\obj\Debug\net8.0\ref\WebmasterAPI.dll
 C:\Users\Jair\Desktop\OpenSource\Testing API\WebMasterApi\WebmasterAPI\WebmasterAPI\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\Jair\Desktop\OpenSource\Testing API\WebMasterApi\WebmasterAPI\WebmasterAPI\obj\Debug\net8.0\WebmasterAPI.sourcelink.json

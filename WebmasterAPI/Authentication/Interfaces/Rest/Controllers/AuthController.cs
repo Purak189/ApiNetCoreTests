@@ -26,13 +26,19 @@ public class AuthController : ControllerBase
     }
 
     
-    // [HttpPost("sign-in")]
-    // public async Task<IActionResult> Authenticate(AuthenticateRequest request)
-    // {
-    //     var response = await _userService.A
-    //
-    //     return Ok(user);
-    // }
+    [HttpPost("sign-up")]
+    public async Task<IActionResult> Register(RegisterRequest request)
+    {
+        try
+        {
+            await _userService.RegisterAsync(request);
+            return Ok(new { message = "Registration succesful" });
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
+    }
 
     [HttpGet]
     public async Task<IActionResult> GetAll()

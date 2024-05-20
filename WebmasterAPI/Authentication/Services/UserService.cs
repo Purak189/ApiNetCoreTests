@@ -43,9 +43,9 @@ public class UserService : IUserService
 
     public async Task RegisterAsync(RegisterRequest model)
     {
-        if (_userRepository.ExistsByEmail(model.Email))
+        if (_userRepository.ExistsByEmail(model.mail))
         {
-            throw new ApplicationException($"Email '{model.Email}' is already taken");
+            throw new ApplicationException($"Email '{model.mail}' is already taken");
         }
 
         var user = _mapper.Map<User>(model);
@@ -57,7 +57,7 @@ public class UserService : IUserService
         }
         catch (Exception e)
         {
-            throw new ApplicationException($"An error ocurred while saving the user: {e.Message}");
+            throw new ApplicationException($"An error ocurred while saving the user: {e.Message}", e);
         }
     }
 
