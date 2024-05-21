@@ -20,10 +20,18 @@ public class UserService : IUserService
         _unitOfWork = unitOfWork;
     }
     
-    // public async Task<AuthenticateResponse> AuthenticateAsync(AuthenticateRequest model)
-    // {
-    //     
-    // }
+    public async Task<AuthenticateResponse> AuthenticateAsync(AuthenticateRequest model)
+    {
+        var user = await _userRepository.FindByEmailAsync(model.Mail);
+
+        if (user == null || user.password!= model.Password)
+        {
+            throw new ApplicationException("User not found");
+        }
+
+        var response = _mapper.Map<AuthenticateResponse>(user);
+        return response;
+    }
 
     public async Task<IEnumerable<User>> ListAsync()
     {
@@ -57,7 +65,7 @@ public class UserService : IUserService
         }
         catch (Exception e)
         {
-            throw new ApplicationException($"An error ocurred while saving the user: {e.Message}", e);
+            throw new ApplicationException($"An error occurred while saving the user: {e.InnerException?.Message ?? e.Message}", e);
         }
     }
 

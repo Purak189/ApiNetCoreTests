@@ -1,5 +1,6 @@
 using System.Net.Mime;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebmasterAPI.Authentication.Domain.Services;
@@ -38,6 +39,14 @@ public class AuthController : ControllerBase
         {
             return BadRequest(e.Message);
         }
+    }
+    
+    [AllowAnonymous]
+    [HttpPost("sign-in")]
+    public async Task<IActionResult> Authenticate(AuthenticateRequest request)
+    {
+        var response = await _userService.AuthenticateAsync(request);
+        return Ok(response);
     }
 
     [HttpGet]

@@ -5,7 +5,7 @@ namespace WebmasterAPI.Authentication.Domain.Services;
 
 public interface IUserService
 {
-    // Task<AuthenticateResponse> AuthenticateAsync(AuthenticateRequest model);
+    Task<AuthenticateResponse> AuthenticateAsync(AuthenticateRequest model);
     Task<IEnumerable<User>> ListAsync();
     Task<User> GetByIdAsync(int id);
     Task RegisterAsync(RegisterRequest model);
